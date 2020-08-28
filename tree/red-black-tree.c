@@ -31,16 +31,6 @@ int isRed(struct node *root){
    return 0;
    }
 }
-int isNotRed(struct node * root){
-  if(root->color==1)
-  {
-   return 0;
-  }
-  else{
-  return 1;
-  }
-}
-
 struct node * rotateLeft(struct node *root){
     struct node *temp;
     root->right->color=0;
