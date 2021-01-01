@@ -91,7 +91,7 @@ void printList(struct Node *n)
         p=p->next;
     }
   }
-  cout<<"from backward"<<endl;
+  cout<<"from backward "<<endl;
   
   while(p!=NULL)
   {
