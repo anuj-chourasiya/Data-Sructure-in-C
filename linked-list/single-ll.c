@@ -10,9 +10,11 @@ void printList(struct Node *n)
 {
   while(n!=NULL)
   {
-    printf("%d\n",n->data);
+    printf("%d",n->data);
+    printf(" ");
     n=n->next;
   }
+  printf("\n");
 }
 struct Node *  create_node(int item)
 	
@@ -134,18 +136,38 @@ struct Node * pop_from_posi(struct Node * head ,int posi)
   q->next=q->next->next;
   return head;
 }
+
+struct Node * reverse(struct Node *head){
+    struct Node *dummy,*next1;
+    dummy=NULL;
+    
+    while(head!=NULL){
+      next1=head->next;
+      head->next=dummy;
+      dummy=head;
+      head=next1;
+      
+    }
+    return dummy;
+}
+
  void main()
 {
  struct Node *head;
  
- head=append(head,10);
- head=append(head,20);
- head=insert_from_front(head,30);
- head=insert_from_front(head,16);
- head=insert_at_posi(head,100,3);
- head=pop(head);
- head=pop_from_front(head);
- head=pop_from_posi(head,2);
+ head=append(head,10); //list=10
+ head=append(head,20); //list=10,20
+ head=insert_from_front(head,30); //list=30,10,20
+ head=insert_from_front(head,16); //list=16,30,10,20
+ head=insert_at_posi(head,100,3); //list=16,30,3,10,20
+ head=pop(head); //list=16,30,3,10
+ head=pop_from_front(head); //list=30,3,10
+ head=pop_from_posi(head,2); //list=30,10
+ head=append(head,1); //list=30,10,1
+ head=append(head,2); //list=30,10,1,2
+ head=append(head,3); //list=30,10,1,2,3
+ head=reverse(head); //list=3,2,1,10,30
  printList(head);
- 
+
 }
+
